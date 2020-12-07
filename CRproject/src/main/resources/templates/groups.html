@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+</head>
+<style type="text/css">
+    TABLE {
+        width: 300px; /* Ширина таблицы */
+        border-collapse: collapse; /* Убираем двойные линии между ячейками */
+    }
+    TD, TH {
+        padding: 3px; /* Поля вокруг содержимого таблицы */
+        border: 1px solid black; /* Параметры рамки */
+    }
+    TH {
+        background: #b0e0e6; /* Цвет фона */
+    }
+</style>
+<body bgcolor="#FFEFD5">
+<div th:switch="${groups}">
+    <h2 th:case="null">No groups found!</h2>
+    <div th:case="*">
+        <h2> There are some groups:</h2>
+        <table>
+            <thead>
+            <tr>
+                <th width="50%" >Group_id</th>
+                <th width="50%" >Faculty</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="group:${groups}">
+                <td align="center" width="50%" th:text="${group.group_id}"></td>
+                <td align="center" width="50%" th:text="${group.faculty}"></td>
+                <td><a th:href="@{group-delete/{id}(id=${group.group_id})}">Delete</a></td>
+                <td><a th:href="@{group-edit/{id}(id=${group.group_id})}">Edit</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/add-group">Add group</a></p>
+    <p><a href="/">Quit</a></p>
+</div>
+</body>
+</html>

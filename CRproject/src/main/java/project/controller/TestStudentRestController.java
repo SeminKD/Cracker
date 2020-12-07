@@ -31,7 +31,7 @@ public class TestStudentRestController {
 
     @PatchMapping("/updateStudent")
     public void updateStudent(@RequestBody Student student) {
-        student.setEnroll_date(new Date());
+        //student.setEnroll_date(new Date());
         studentService.updateStudent(student);
     }
 

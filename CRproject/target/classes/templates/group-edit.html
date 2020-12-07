@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit order</title>
+</head>
+<style>
+    p {
+        margin-top: 0.5em; /* Отступ сверху */
+        margin-bottom: 1em; /* Отступ снизу */
+    }
+</style>
+<body bgcolor="#FFEFD5">
+<h1>Enter your data to update group</h1>
+<form action="#" th:action="@{/group-edit}" method="post">
+    <div><label> Group number: </label><input type="text" th:value="${group.group_id}" readonly></div>
+    <p>
+    <div><label> Faculty : <input type="text" th:name="faculty" th:value="${group.faculty}" required/> </label></div>
+    <p>
+        <input type="hidden" th:name="id" th:value="${ID}">
+    <div><input type="submit" value="Edit"></div>
+</form>
+<p>
+    <a align="center" href="/groups">Back</a>
+<p><a href="/">Quit</a></p>
+</body>
+</html>

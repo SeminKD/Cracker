@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add student</title>
+</head>
+<style>
+    p {
+        margin-top: 0.5em; /* Отступ сверху */
+        margin-bottom: 1em; /* Отступ снизу */
+    }
+</style>
+<body bgcolor="#FFEFD5">
+<h1>Enter data to create a student</h1>
+<form action="#" th:action="@{/add-student}" method="post">
+    <label> Group : </label>
+    <select th:name="group_id">
+        <option th:each="group:${groups}" th:value="${group.group_id}" th:text="${group.group_id}"></option>
+    </select>
+    <p>
+    <div><label> Name : <input type="text" th:name="stud_name" required/> </label></div>
+    <p>
+    <div><label> Enroll date : <input type="date" th:name="enroll_date" required/> </label></div>
+    <p><div><input type="submit" value="Add"></div>
+</form>
+<p>
+    <a align="center" href="/students">Back</a>
+<p><a href="/">Quit</a></p>
+</body>
+</html>
