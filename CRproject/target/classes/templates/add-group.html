@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit order</title>
+</head>
+<style>
+    p {
+        margin-top: 0.5em; /* Отступ сверху */
+        margin-bottom: 1em; /* Отступ снизу */
+    }
+</style>
+<body bgcolor="#FFEFD5">
+<h1>Enter your data to create group</h1>
+<form action="#" th:action="@{/add-group}" method="post">
+    <div><label> Faculty : <input type="text" th:name="faculty" required/> </label></div>
+    <p>
+    <div><input type="submit" value="Add"></div>
+</form>
+<p>
+    <a align="center" href="/groups">Back</a>
+<p><a href="/">Quit</a></p>
+</body>
+</html>

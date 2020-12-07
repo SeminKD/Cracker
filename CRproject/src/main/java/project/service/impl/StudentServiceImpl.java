@@ -18,7 +18,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student addStudent(Student student) {
         if (student == null) throw new IllegalArgumentException();
-        student.setEnroll_date(new Date());
+        //student.setEnroll_date(new Date());
         return studentRepository.saveAndFlush(student);
     }
 

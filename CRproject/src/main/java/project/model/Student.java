@@ -12,10 +12,13 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long stud_id;
 
-    @Column(name = "enroll_date")
-    private Date enroll_date;
+    @Column(name="stud_name")
+    private String stud_name;
 
-    @ManyToOne
+    @Column(name = "enroll_date")
+    private String enroll_date;
+
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "group_id")
     private Group group_id;
 
@@ -30,11 +33,11 @@ public class Student {
         this.stud_id = stud_id;
     }
 
-    public Date getEnroll_date() {
+    public String getEnroll_date() {
         return enroll_date;
     }
 
-    public void setEnroll_date(Date enroll_date) {
+    public void setEnroll_date(String enroll_date) {
         this.enroll_date = enroll_date;
     }
 
@@ -44,5 +47,17 @@ public class Student {
 
     public void setGroup_id(Group group_id) {
         this.group_id = group_id;
+    }
+
+    public String getStud_name() {
+        return stud_name;
+    }
+
+    public void setStud_name(String stud_name) {
+        this.stud_name = stud_name;
+    }
+
+    public Long getGroupNumber(){
+        return group_id.getGroup_id();
     }
 }

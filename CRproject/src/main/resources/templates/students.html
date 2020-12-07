@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+</head>
+<style type="text/css">
+    TABLE {
+        width: 300px; /* Ширина таблицы */
+        border-collapse: collapse; /* Убираем двойные линии между ячейками */
+    }
+    TD, TH {
+        padding: 3px; /* Поля вокруг содержимого таблицы */
+        border: 1px solid black; /* Параметры рамки */
+    }
+    TH {
+        background: #b0e0e6; /* Цвет фона */
+    }
+</style>
+<body bgcolor="#FFEFD5">
+<div th:switch="${students}">
+    <h2 th:case="null">No students found!</h2>
+    <div th:case="*">
+        <h2> There are some students:</h2>
+        <table>
+            <thead>
+            <tr>
+                <th width="10%" >Stud_id</th>
+                <th width="40%" >Stud_name</th>
+                <th width="40%" >Enroll_date</th>
+                <th width="10%" >Group_id</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="student:${students}">
+                <td align="center" width="10%" th:text="${student.stud_id}"></td>
+                <td align="center" width="40%" th:text="${student.stud_name}"></td>
+                <td align="center" width="40%" th:text="${student.enroll_date}"></td>
+                <td align="center" width="10%" th:text="${student.group_id}"></td>
+                <td><a th:href="@{student-delete/{id}(id=${student.stud_id})}">Delete</a></td>
+                <td><a th:href="@{student-edit/{id}(id=${student.stud_id})}">Edit</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/add-student">Add student</a></p>
+    <p><a href="/">Quit</a></p>
+</div>
+</body>
+</html>
