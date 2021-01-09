@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <title>Hello</title>
 </head>
+<body bgcolor="#FFEFD5">
 <h2> Hello!</h2>
-Let`s start!
+Welcome in our system!
 <p><a href="/students">Show students</a></p>
 <p><a href="/groups">Show groups</a></p>
 </body>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
 </html>
